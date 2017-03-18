@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x250"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom|center_horizontal"
+            android:paddingBottom="@dimen/x50"
+            android:paddingLeft="@dimen/x50"
+            android:text="消息"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/x70" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/radioGroup"
+        android:layout_marginBottom="@dimen/x1"
+        android:layout_weight="1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x1"
+        android:layout_above="@+id/radioGroup"
+        android:background="#c7c7c7" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x220"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_menu_pic"
+            style="@style/home_fragment_tab_rb"
+            android:checked="true"
+            android:drawableTop="@drawable/menu_tab_pic_selector"
+            android:text="消息" />
+
+        <RadioButton
+            android:id="@+id/rb_menu_video"
+            style="@style/home_fragment_tab_rb"
+            android:drawableTop="@drawable/menu_tab_video_selector"
+            android:text="联系人" />
+
+        <RadioButton
+            android:id="@+id/rb_menu_me"
+            style="@style/home_fragment_tab_rb"
+            android:drawableTop="@drawable/menu_tab_me_selector"
+            android:text="我的" />
+    </RadioGroup>
+</LinearLayout>

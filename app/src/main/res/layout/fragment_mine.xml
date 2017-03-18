@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#e7e7e7"
+            android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/brand"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x220"
+            android:background="#fff"
+            android:drawableLeft="@mipmap/my_brand"
+            android:drawablePadding="@dimen/x20"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x50"
+            android:text="品牌：hongmi"
+            android:textSize="@dimen/x60"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:layout_marginLeft="@dimen/x80"
+            android:layout_marginRight="@dimen/x80"
+            android:background="#e7e7e7"/>
+
+        <TextView
+            android:id="@+id/model"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x220"
+            android:background="#fff"
+            android:drawableLeft="@mipmap/my_model"
+            android:drawablePadding="@dimen/x20"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x50"
+            android:text="品牌：hongmi"
+            android:textSize="@dimen/x60"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:layout_marginLeft="@dimen/x80"
+            android:layout_marginRight="@dimen/x80"
+            android:background="#e7e7e7"/>
+
+        <TextView
+            android:id="@+id/vn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x220"
+            android:background="#fff"
+            android:drawableLeft="@mipmap/my_vn"
+            android:drawablePadding="@dimen/x20"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x50"
+            android:text="品牌：hongmi"
+            android:textSize="@dimen/x60"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:layout_marginLeft="@dimen/x80"
+            android:layout_marginRight="@dimen/x80"
+            android:background="#e7e7e7"/>
+
+        <TextView
+            android:id="@+id/vc"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x220"
+            android:background="#fff"
+            android:drawableLeft="@mipmap/my_vc"
+            android:drawablePadding="@dimen/x20"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x50"
+            android:text="品牌：hongmi"
+            android:textSize="@dimen/x60"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:layout_marginLeft="@dimen/x80"
+            android:layout_marginRight="@dimen/x80"
+            android:background="#e7e7e7"/>
+
+        <TextView
+            android:id="@+id/ime"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x220"
+            android:background="#fff"
+            android:drawableLeft="@mipmap/my_imei"
+            android:drawablePadding="@dimen/x20"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x50"
+            android:text="品牌：hongmi"
+            android:textSize="@dimen/x60"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:layout_marginLeft="@dimen/x80"
+            android:layout_marginRight="@dimen/x80"
+            android:background="#e7e7e7"/>
+
+        <TextView
+            android:id="@+id/imsi"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x220"
+            android:background="#fff"
+            android:drawableLeft="@mipmap/my_imsi"
+            android:drawablePadding="@dimen/x20"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x50"
+            android:text="品牌：hongmi"
+            android:textSize="@dimen/x60"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:layout_marginLeft="@dimen/x80"
+            android:layout_marginRight="@dimen/x80"
+            android:background="#e7e7e7"/>
+
+        <TextView
+            android:id="@+id/num"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x220"
+            android:background="#fff"
+            android:drawableLeft="@mipmap/my_screen"
+            android:drawablePadding="@dimen/x20"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x50"
+            android:text="品牌：hongmi"
+            android:textSize="@dimen/x60"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:layout_marginLeft="@dimen/x80"
+            android:layout_marginRight="@dimen/x80"
+            android:background="#e7e7e7"/>
+
+        <TextView
+            android:id="@+id/screen"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x220"
+            android:background="#fff"
+            android:drawableLeft="@mipmap/my_screen"
+            android:drawablePadding="@dimen/x20"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x50"
+            android:text="品牌：hongmi"
+            android:textSize="@dimen/x60"/>
+
+    </LinearLayout>
+</ScrollView>

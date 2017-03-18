@@ -1,0 +1,23 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+
+    </style>
+    <style name="FullscreenTheme">
+        <item name="android:windowBackground">@mipmap/bg</item>
+    </style>
+    <style name="home_fragment_tab_rb">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:button">@null</item>
+        <item name="android:textColor">@drawable/button_textview_color_selector</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:drawablePadding">@dimen/x10</item>
+        <item name="android:paddingTop">@dimen/x10</item>
+        <item name="android:paddingBottom">@dimen/x10</item>
+    </style>
+</resources>
