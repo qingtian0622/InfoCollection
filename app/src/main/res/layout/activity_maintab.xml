@@ -4,9 +4,9 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/x250"
+        android:layout_height="@dimen/x270"
         android:background="@color/colorPrimary">
 
         <TextView
@@ -15,11 +15,20 @@
             android:layout_height="match_parent"
             android:gravity="bottom|center_horizontal"
             android:paddingBottom="@dimen/x50"
-            android:paddingLeft="@dimen/x50"
             android:text="消息"
             android:textColor="#ffffff"
-            android:textSize="@dimen/x70" />
-    </LinearLayout>
+            android:textSize="@dimen/x70"/>
+
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="@dimen/x150"
+            android:layout_height="@dimen/x150"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="@dimen/x10"
+            android:layout_marginRight="@dimen/x50"
+            android:background="@mipmap/icon_search"
+            android:padding="@dimen/x50"/>
+    </FrameLayout>
 
     <FrameLayout
         android:id="@+id/content"
@@ -49,13 +58,13 @@
             style="@style/home_fragment_tab_rb"
             android:checked="true"
             android:drawableTop="@drawable/menu_tab_pic_selector"
-            android:text="消息" />
+            android:text="通讯录" />
 
         <RadioButton
             android:id="@+id/rb_menu_video"
             style="@style/home_fragment_tab_rb"
             android:drawableTop="@drawable/menu_tab_video_selector"
-            android:text="联系人" />
+            android:text="日志" />
 
         <RadioButton
             android:id="@+id/rb_menu_me"

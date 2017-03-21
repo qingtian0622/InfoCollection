@@ -1,8 +1,6 @@
 package com.anfeng.infocollection.adapter;
 
 import android.content.Context;
-import android.support.v4.app.FragmentActivity;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,26 +9,25 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.anfeng.infocollection.R;
+import com.anfeng.infocollection.model.ErrorModel;
 import com.anfeng.infocollection.model.UserModel;
+import com.google.gson.Gson;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author liunw 2016/11/17.
  */
-public class UserAdapter extends BaseAdapter
+public class ErrorAdapter extends BaseAdapter
 {
-    private List<UserModel.UserBean> mGameArr = new ArrayList<>();
+    private List<String> mGameArr;
     Context mCxt;
 
 
-    public UserAdapter(Context cxt, List<UserModel.UserBean> gameArr)
+    public ErrorAdapter(Context cxt, List<String> gameArr)
     {
         this.mCxt = cxt;
-        this.mGameArr.addAll(gameArr);
+        this.mGameArr = gameArr;
 
     }
 
@@ -42,15 +39,8 @@ public class UserAdapter extends BaseAdapter
         return mGameArr.size();
     }
 
-    public void setData(List<UserModel.UserBean> list)
-    {
-        mGameArr.clear();
-        mGameArr.addAll(list);
-        notifyDataSetChanged();
-    }
-
     @Override
-    public UserModel.UserBean getItem(int position)
+    public String getItem(int position)
     {
         return mGameArr.get(position);
     }
@@ -80,23 +70,25 @@ public class UserAdapter extends BaseAdapter
             holder = (ViewHolder) convertView.getTag();
         }
 
-        final UserModel.UserBean gameItem = mGameArr.get(position);
+        final String gameItem = mGameArr.get(position);
+        Gson gson=new Gson();
+        ErrorModel model=gson.fromJson(gameItem,ErrorModel.class);
 
-        if (("男").equals(gameItem.getGender()))
-        {
-            holder.iconImg.setImageResource(R.mipmap.head_man);
-        }
-        else if (("女").equals(gameItem.getGender()))
-        {
-            holder.iconImg.setImageResource(R.mipmap.head_women);
-        }
-        else
-        {
-            holder.iconImg.setImageResource(R.mipmap.default_head);
-        }
+//        if (("男").equals(gameItem.getGender()))
+//        {
+//            holder.iconImg.setImageResource(R.mipmap.head_man);
+//        }
+//        else if (("女").equals(gameItem.getGender()))
+//        {
+//            holder.iconImg.setImageResource(R.mipmap.head_women);
+//        }
+//        else
+//        {
+//            holder.iconImg.setImageResource(R.mipmap.default_head);
+//        }
 
-        holder.gameNameTv.setText(gameItem.getName());
-        holder.timeTv.setText(gameItem.getMobile());
+        holder.gameNameTv.setText(model.getError_summer());
+        holder.timeTv.setText(model.getError_time());
 
         return convertView;
 

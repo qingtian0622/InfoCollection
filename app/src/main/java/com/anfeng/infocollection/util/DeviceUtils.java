@@ -46,6 +46,12 @@ public class DeviceUtils
      */
     public static String getDeviceInfo(Context context)
     {
+        String userphone = (String) SpUtil.getParam(context, "userphone", "");
+        String str = "";
+        if (!TextUtils.isEmpty(userphone))
+        {
+            str = userphone;
+        }
         StringBuffer sb = new StringBuffer("{");
         sb.append("\"PhoneBrand\":\"" + Build.BRAND + "\",");
         sb.append("\"PhoneModel\":\"" + Build.MODEL + "\",");
@@ -53,7 +59,7 @@ public class DeviceUtils
         sb.append("\"PhoneVersionCode\":\"" + Build.VERSION.SDK_INT + "\",");
         sb.append("\"PhoneIMEI\":\"" + getIMEI(context) + "\",");
         sb.append("\"PhoneIMSI\":\"" + getIMSI(context) + "\",");
-        sb.append("\"PhoneNumber\":\"" + (TextUtils.isEmpty(getNum(context)) ? "17688530622" : getNum(context)) + "\",");
+        sb.append("\"PhoneNumber\":\"" + (TextUtils.isEmpty(getNum(context)) ? str : getNum(context)) + "\",");
         sb.append("\"PhoneScreen\":\"" + getScreen((Activity) context) + "\"");
         sb.append("}");
         return sb.toString();
@@ -126,8 +132,8 @@ public class DeviceUtils
         for (PackageInfo i : packages)
         {
             ApplicationInfo applicationInfo = i.applicationInfo;
-            //if (!isSystemApp(applicationInfo))
-            if (i.packageName.equals("com.tencent.mm") || i.packageName.equals("com.ht.sophixdemo"))
+            if (!isSystemApp(applicationInfo))
+            //if (i.packageName.equals("com.tencent.mm") || i.packageName.equals("com.ht.sophixdemo"))
             {
                 sb.append("{");
                 sb.append("\"AppName\":\"" + i.applicationInfo.loadLabel(pm).toString() + "\",");

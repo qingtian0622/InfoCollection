@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-
+import android.util.Log;
 
 import com.anfeng.infocollection.fragments.ContactsFragment;
 import com.anfeng.infocollection.fragments.MessageFragment;
@@ -30,24 +30,27 @@ public class FragmentController
 
     public static FragmentController getInstance(FragmentActivity activity, int containerId)
     {
+
         if (controller == null)
         {
-            controller = new FragmentController(activity, containerId);
+            synchronized (FragmentController.class)
+            {
+                if (controller == null)
+                {
+                    controller = new FragmentController(activity, containerId);
+                }
+            }
         }
+
         return controller;
     }
 
     public static void onDestroy()
     {
-        controller = null;
-    }
-
-    public static void onDestoryController()
-    {
         if (controller != null)
         {
-            controller.onDestoryController();
-            controller=null;
+            Log.e("controller", "onDestoryController: aaaaa");
+            controller = null;
         }
     }
 

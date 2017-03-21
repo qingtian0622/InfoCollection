@@ -1,13 +1,18 @@
 package com.anfeng.infocollection.fragments;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.anfeng.infocollection.AboutActivity;
+import com.anfeng.infocollection.DeviceInfoActivity;
+import com.anfeng.infocollection.ErrorLogActivity;
 import com.anfeng.infocollection.R;
 import com.anfeng.infocollection.base.BaseFragment;
 import com.anfeng.infocollection.model.DeviceInfoModel;
@@ -19,42 +24,39 @@ import com.google.gson.Gson;
  * Created by Administrator on 2017/2/21.
  */
 
-public class MineFragment extends BaseFragment
+public class MineFragment extends BaseFragment implements View.OnClickListener
 {
-    TextView tv_brand, tv_model, tv_vc, tv_vn, tv_imei, tv_imsi, tv_num, tv_screen;
+    private Button bug1, bug2, bug3, bug4;
+
+    private TextView tv_mydevice,tv_error_log,tv_about_us;
 
     @Override
     protected int getLayoutResId()
     {
-        return R.layout.fragment_mine;
+        return R.layout.fragment_mine1;
     }
 
     @Override
     public void finishCreateView(View view)
     {
+        bug1 = (Button) view.findViewById(R.id.bug1);
+        bug2 = (Button) view.findViewById(R.id.bug2);
+        bug3 = (Button) view.findViewById(R.id.bug3);
+        bug4 = (Button) view.findViewById(R.id.bug4);
 
-        tv_brand = (TextView) view.findViewById(R.id.brand);
-        tv_imei = (TextView) view.findViewById(R.id.ime);
+        bug1.setOnClickListener(this);
+        bug2.setOnClickListener(this);
+        bug3.setOnClickListener(this);
+        bug4.setOnClickListener(this);
 
-        tv_model = (TextView) view.findViewById(R.id.model);
-        tv_vc = (TextView) view.findViewById(R.id.vc);
-        tv_vn = (TextView) view.findViewById(R.id.vn);
-        tv_imsi = (TextView) view.findViewById(R.id.imsi);
-        tv_num = (TextView) view.findViewById(R.id.num);
-        tv_screen = (TextView) view.findViewById(R.id.screen);
-        Gson gson = new Gson();
-        DeviceInfoModel model = gson.fromJson(DeviceUtils.getDeviceInfo(getActivity()), DeviceInfoModel.class);
+        tv_mydevice= (TextView) view.findViewById(R.id.my_device);
+        tv_error_log= (TextView) view.findViewById(R.id.my_error_log);
+        tv_about_us= (TextView) view.findViewById(R.id.about_us);
+        tv_mydevice.setOnClickListener(this);
+        tv_error_log.setOnClickListener(this);
+        tv_about_us.setOnClickListener(this);
 
-//        tv_brand.setText("手机品牌：" + model.getPhoneBrand());
-        tv_brand.setText(getDiffColorStr("手机品牌：", "手机品牌：" + model.getPhoneBrand()));
-        tv_imei.setText("手机IMEI：" + model.getPhoneIMEI());
 
-        tv_model.setText("手机型号：" + model.getPhoneModel());
-        tv_vc.setText("版本号：" + model.getPhoneVersionCode());
-        tv_vn.setText("版本名称：" + model.getPhoneVersionName());
-        tv_imsi.setText("手机IMSI：" + model.getPhoneIMSI());
-        tv_num.setText(TextUtils.isEmpty(model.getPhoneNumber()) ? "无SIM卡" : "本机号码：" + model.getPhoneNumber());
-        tv_screen.setText("分辨率：" + model.getPhoneScreen());
 
     }
 
@@ -64,5 +66,33 @@ public class MineFragment extends BaseFragment
         SpannableString spanString = new SpannableString(totalStr);
         spanString.setSpan(new ForegroundColorSpan(Color.parseColor("#ff0000")), 0, colorStr.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
         return spanString;
+    }
+
+    @Override
+    public void onClick(View view)
+    {
+        switch (view.getId())
+        {
+            case R.id.bug1:
+                throw new NullPointerException("空指针");
+            case R.id.bug2:
+                throw new ArrayIndexOutOfBoundsException("下标异常");
+            case R.id.bug3:
+                throw new ArithmeticException("数学错误");
+            case R.id.bug4:
+                throw new NumberFormatException("类型不符");
+            case R.id.my_device:
+                Intent device_intent=new Intent(getActivity(),DeviceInfoActivity.class);
+                startActivity(device_intent);
+                break;
+            case R.id.my_error_log:
+                Intent error_intent=new Intent(getActivity(),ErrorLogActivity.class);
+                startActivity(error_intent);
+                break;
+            case R.id.about_us:
+                Intent about_intent=new Intent(getActivity(),AboutActivity.class);
+                startActivity(about_intent);
+                break;
+        }
     }
 }

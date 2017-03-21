@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#e7e7e7"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x800"
+        android:background="#fff"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="@dimen/x350"
+            android:layout_height="@dimen/x350"
+            android:layout_gravity="center"
+            android:background="@mipmap/push"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/my_device"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x220"
+        android:background="#fff"
+        android:drawableLeft="@mipmap/my_model"
+        android:drawablePadding="@dimen/x20"
+        android:drawableRight="@mipmap/right_jiantou"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x50"
+        android:paddingRight="20dp"
+        android:text="我的设备"
+        android:textSize="@dimen/x80"/>
+
+    <TextView
+        android:id="@+id/my_error_log"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x220"
+        android:layout_marginTop="@dimen/x1"
+        android:background="#fff"
+        android:drawableLeft="@mipmap/my_model"
+        android:drawablePadding="@dimen/x20"
+        android:drawableRight="@mipmap/right_jiantou"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x50"
+        android:paddingRight="20dp"
+        android:text="我的日志"
+        android:textSize="@dimen/x80"/>
+
+    <TextView
+        android:id="@+id/about_us"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x220"
+        android:layout_marginTop="@dimen/x1"
+        android:background="#fff"
+        android:drawableLeft="@mipmap/my_model"
+        android:drawablePadding="@dimen/x20"
+        android:drawableRight="@mipmap/right_jiantou"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x50"
+        android:paddingRight="20dp"
+        android:text="关于我们"
+        android:textSize="@dimen/x80"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x180"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x50"
+        android:layout_marginTop="@dimen/x50"
+        android:text="错误日志产生器"
+        android:textSize="@dimen/x70"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x200"
+        android:layout_marginBottom="@dimen/x50"
+        android:background="#fff"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bug1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#fff"
+            android:text="野指针"
+            android:textSize="@dimen/x50"
+            android:textColor="@color/colorPrimary"/>
+
+        <View
+            android:layout_width="@dimen/x1"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/x50"
+            android:layout_marginTop="@dimen/x50"
+            android:background="#e7e7e7"/>
+
+        <Button
+            android:id="@+id/bug2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#fff"
+            android:text="下标异常"
+            android:textSize="@dimen/x50"
+            android:textColor="@color/colorPrimary"/>
+
+        <View
+            android:layout_width="@dimen/x1"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/x50"
+            android:layout_marginTop="@dimen/x50"
+            android:background="#e7e7e7"/>
+
+        <Button
+            android:id="@+id/bug3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#fff"
+            android:text="数学错误"
+            android:textSize="@dimen/x50"
+            android:textColor="@color/colorPrimary"/>
+
+        <View
+            android:layout_width="@dimen/x1"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/x50"
+            android:layout_marginTop="@dimen/x50"
+            android:background="#e7e7e7"/>
+
+        <Button
+            android:id="@+id/bug4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#fff"
+            android:textSize="@dimen/x50"
+            android:text="类型不符"
+            android:textColor="@color/colorPrimary"/>
+    </LinearLayout>
+</LinearLayout>

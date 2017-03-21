@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x280"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/x200"
+            android:layout_gravity="center_horizontal|bottom"
+            android:gravity="center"
+            android:text="我的错误日志"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/x80"/>
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|bottom"
+            android:layout_marginBottom="@dimen/x30"
+            android:layout_marginLeft="@dimen/x30"
+            android:background="@mipmap/white_back"/>
+    </FrameLayout>
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

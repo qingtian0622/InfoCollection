@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x280"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/x200"
+            android:layout_gravity="center_horizontal|bottom"
+            android:gravity="center"
+            android:text="关于我们"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/x80"/>
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|bottom"
+            android:layout_marginBottom="@dimen/x30"
+            android:layout_marginLeft="@dimen/x30"
+            android:background="@mipmap/white_back"/>
+    </FrameLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="软件介绍:"
+        android:layout_marginTop="@dimen/x50"
+        android:paddingLeft="@dimen/x50"
+        android:textSize="@dimen/x80"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="        '极限安锋'是一款即兴开发的APP,旨在收集公司同事的手机信息,以及测试APP产生崩溃日志的上传.欢迎安锋的小伙伴进行安装测试，有问题可以反馈给我！"
+        android:layout_marginTop="@dimen/x50"
+        android:paddingLeft="@dimen/x50"
+        android:lineSpacingExtra="@dimen/x15"
+        android:paddingRight="@dimen/x50"
+        android:textSize="@dimen/x50"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="团队介绍:"
+        android:layout_marginTop="@dimen/x50"
+        android:paddingLeft="@dimen/x50"
+        android:textSize="@dimen/x80"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="本APP由三个开发组的同事一起合作完成，分工如下:\n        前端:黄涛、柳宁卫\n        后台:熊彪\n        数据:胡子懿、杨森"
+        android:layout_marginTop="@dimen/x50"
+        android:paddingLeft="@dimen/x50"
+        android:lineSpacingExtra="@dimen/x15"
+        android:paddingRight="@dimen/x50"
+        android:textSize="@dimen/x50"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="温馨提示:"
+        android:layout_marginTop="@dimen/x50"
+        android:paddingLeft="@dimen/x50"
+        android:textSize="@dimen/x80"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="        本APP数据从钉钉上进行人工采集,如涉及到隐私,请联系我!公司员工进行登录的时候,用钉钉上的手机号进行登录"
+        android:layout_marginTop="@dimen/x50"
+        android:paddingLeft="@dimen/x50"
+        android:lineSpacingExtra="@dimen/x15"
+        android:paddingRight="@dimen/x50"
+        android:textSize="@dimen/x50"/>
+
+    <TextView
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/sel_btn_circular"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="退出登录"
+        android:textColor="@color/c_ffffff"
+        android:textSize="16sp" />
+</LinearLayout>

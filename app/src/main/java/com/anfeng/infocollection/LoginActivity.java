@@ -15,6 +15,7 @@ import com.anfeng.infocollection.http.RequestManager;
 import com.anfeng.infocollection.http.callback.StringCallBack;
 import com.anfeng.infocollection.model.LoginModel;
 import com.anfeng.infocollection.util.DeviceUtils;
+import com.anfeng.infocollection.util.SpUtil;
 import com.google.gson.Gson;
 
 import java.util.HashMap;
@@ -30,13 +31,16 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener
 
     private TextView tv_code, tv_login;
 
+    private String strcode = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         initView();
-        Log.e(TAG, "onCreate: "+(1/0) );
+
+
     }
 
     private void initView()
@@ -95,7 +99,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener
                 }
                 if (phone != null && isMobileNO(phone))
                 {
-                    tv_code.setText(getRandNum(4));
+                    strcode = getRandNum(4);
+                    tv_code.setText(strcode);
                 }
                 break;
             case R.id.sign_bt:
@@ -114,6 +119,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener
                     Toast.makeText(LoginActivity.this, "验证码不能为空", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if (!strcode.equals(code))
+                {
+                    Toast.makeText(LoginActivity.this, "验证码不正确", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if (!TextUtils.isEmpty(phone) && !TextUtils.isEmpty(code))
                 {
                     HashMap<String, String> map = new HashMap<String, String>();
@@ -129,6 +139,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener
                             LoginModel model = gson.fromJson(result, LoginModel.class);
                             if (model != null)
                             {
+                                SpUtil.setParam(LoginActivity.this, "userphone", model.getMobile());
                                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                                 finish();
                             }

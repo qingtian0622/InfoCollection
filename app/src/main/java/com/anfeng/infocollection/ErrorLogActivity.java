@@ -1,14 +1,14 @@
-package com.anfeng.infocollection.fragments;
+package com.anfeng.infocollection;
 
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 
-import com.anfeng.infocollection.ErrorLogActivity;
-import com.anfeng.infocollection.R;
 import com.anfeng.infocollection.adapter.ErrorAdapter;
-import com.anfeng.infocollection.base.BaseFragment;
+import com.anfeng.infocollection.base.BaseActivity;
 import com.anfeng.infocollection.http.RequestManager;
 import com.anfeng.infocollection.http.callback.StringCallBack;
 import com.anfeng.infocollection.model.SearchModel;
@@ -19,30 +19,33 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-
 /**
- * Created by Administrator on 2017/2/21.
+ * Created by Administrator on 2017/3/20.
  */
 
-public class ContactsFragment extends BaseFragment
+public class ErrorLogActivity extends BaseActivity
 {
+    private static final String TAG = "ErrorLogActivity";
+
     private ListView listview;
 
-    private static final String TAG = "ContactsFragment";
+    private ImageView back;
+
     @Override
-    protected int getLayoutResId()
+    protected void onCreate(Bundle savedInstanceState)
     {
-        return R.layout.fragment_contacts;
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_error_log);
+        initView();
     }
 
-    @Override
-    public void finishCreateView(View view)
+    private void initView()
     {
-        listview= (ListView) view.findViewById(R.id.listview);
+        listview = (ListView) findViewById(R.id.listview);
 
-        String userphone = (String) SpUtil.getParam(getActivity(), "userphone", "");
+        String userphone = (String) SpUtil.getParam(ErrorLogActivity.this, "userphone", "");
         HashMap<String, String> map = new HashMap<>();
-        RequestManager.getInstance(getActivity()).requestAsyn("api/user_show/" + userphone, RequestManager.TYPE_GET, map, new StringCallBack()
+        RequestManager.getInstance(ErrorLogActivity.this).requestAsyn("api/user_show/" + userphone, RequestManager.TYPE_GET, map, new StringCallBack()
         {
             @Override
             public void onReqSuccess(String result)
@@ -58,11 +61,11 @@ public class ContactsFragment extends BaseFragment
                     {
                         if (!TextUtils.isEmpty(model.getLog().get(i).getError_msg()))
                         {
-                            strlist.add(model.getLog().get(i).getError_msg().replace("\\",""));
+                            strlist.add(model.getLog().get(i).getError_msg().replace("\\", ""));
                         }
                     }
-                    Log.e(TAG, "onReqSuccess: "+strlist.get(0) );
-                    ErrorAdapter adapter=new ErrorAdapter(getActivity(),strlist);
+                    Log.e(TAG, "onReqSuccess: " + strlist.get(0));
+                    ErrorAdapter adapter = new ErrorAdapter(ErrorLogActivity.this, strlist);
                     listview.setAdapter(adapter);
                 }
             }
@@ -73,6 +76,15 @@ public class ContactsFragment extends BaseFragment
                 super.onReqFailed(errorMsg);
             }
         });
-    }
 
+        back = (ImageView) findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                finish();
+            }
+        });
+    }
 }
